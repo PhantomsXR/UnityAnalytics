@@ -23,7 +23,7 @@ namespace Unity.Services.Analytics
     {
         const string k_CollectUrlPattern =
 #if LOCATION_CHINA
-            "http://xgs.phantomsxr.com/api/analytics/collect/v2/projects/{0}/environments/{1}";
+            "https://xgs.phantomsxr.com/api/analytics/collect/v2/projects/{0}/environments/{1}";
 #else
             "https://collect.analytics.unity3d.com/api/analytics/collect/v2/projects/{0}/environments/{1}";
 #endif
