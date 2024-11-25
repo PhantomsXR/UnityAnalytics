@@ -21,12 +21,9 @@ namespace Unity.Services.Analytics
     /// </summary>
     public static class AnalyticsService
     {
-        const string k_CollectUrlPattern =
-#if LOCATION_CHINA
-            "https://xgs.phantomsxr.com/api/analytics/collect/v2/projects/{0}/environments/{1}";
-#else
-            "https://collect.analytics.unity3d.com/api/analytics/collect/v2/projects/{0}/environments/{1}";
-#endif
+        static readonly string k_CollectUrlPattern = CheckRegion.IsChina
+            ? "https://xgs.phantomsxr.com/api/analytics/collect/v2/projects/{0}/environments/{1}"
+            : "https://collect.analytics.unity3d.com/api/analytics/collect/v2/projects/{0}/environments/{1}";
 
         static AnalyticsServiceInstance m_Instance;
         static IDispatcherDebug m_DispatcherDebug;
